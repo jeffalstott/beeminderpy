@@ -38,6 +38,7 @@ class Beeminder:
   def call_api(self,url,values,method='GET'):
     result=''
     data = urllib.parse.urlencode(values)
+    data = data.encode('ascii')
     if method=='POST':
       req = urllib.request.Request(url,data)
       response = urllib.request.urlopen(req)
